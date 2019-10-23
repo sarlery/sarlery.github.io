@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="王明辉的博客">
 <meta property="og:description" content="HTML5 File API在 HTML5 的 input 标签中，新增了一个 type=file 属性的表单控件。这个控件可以让我们能调出文件选择窗口然后读取这些文件的内容成为可能。   1&amp;lt;input type=&quot;file&quot; id=&quot;file-ipt&quot; name=&quot;file&quot; accept=&quot;.jpg,.jpeg,.gif,.png&quot;&amp;gt;  上面代码就是一个 file DOM。它支持">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-23T01:55:38.267Z">
+<meta property="og:updated_time" content="2019-10-23T05:26:46.133Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王明辉的博客" type="application/atom+xml">
@@ -173,6 +173,8 @@
 
 <p>上面代码就是一个 file DOM。它支持选择以 .jpg、.gif、.png 后缀格式的图片。当选择好一个文件后 input 元素就会触发 change 事件。<br>该元素不仅可以点击选择文件，还支持拖拽选取文件。当将文件拖拽到 input 元素上方并松手后也会触发 change 事件。  </p>
 <p>通过文件 API，我们可以访问 FileList，包含了代表用户所选文件的对象 File。  </p>
+<a id="more"></a>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fileIpt = <span class="built_in">document</span>.getElementById(<span class="string">"file-ipt"</span>);</span><br><span class="line"><span class="comment">// change 事件触发：</span></span><br><span class="line">fileIpt.onchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> files = fileIpt.files;    <span class="comment">// 获取到 fileList</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; files.length;i ++)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(files[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="file-input-使用技巧"><a href="#file-input-使用技巧" class="headerlink" title="file input 使用技巧"></a>file input 使用技巧</h2><p>说实在的，file <code>&lt;input /&gt;</code> 元素在页面展示的样子真不太好看。许多使用 file input 元素的 UI 组件是把这个元素隐藏掉了，然后通过一些技巧让文件上传组件变得漂亮起来。  </p>
